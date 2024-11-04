@@ -8,42 +8,53 @@
  */
 public class LinkedStack<T> implements StackInterface<T> {
 
-    Node<T> first;
+    Node<T> head;
     int size;
+    Node<T> last;
+
+
+
 
     /**
      * {@inheritDoc}.
      */
     @Override
     public T pop() {
-        // TODO: Implement the pop method, which will be
-        //   similar to a removeFirst method for a LinkedList
-        //   (a special case of our remove method).
-        //   If the list is empty you should return a null value.
-        return null;
+        if (head == null) {
+            return null;
+        }
+
+        T value = head.data;
+        head = head.next;
+        return value;
     }
+
 
     /**
      * {@inheritDoc}.
      */
+
     @Override
     public T top() {
-        // TODO: Implement the top method, which will be
-        //   similar to a getFirst method for a LinkedList
-        //   (a special case of our get method).
-        //   If the list is empty you should return a null.
-        return null;
+        if (head == null) {
+            return null;
+        }
+        return head.data;
     }
 
     /**
      * {@inheritDoc}.
      */
-    @Override
-    public void push(T elem) throws NullPointerException {
-        // TODO: Implement the push method, which will be
-        //   similar to the addFirst method for a LinkedList.
-        //   If elem is null you should throw an exception.
+     @Override
+     public void push(T elem) throws NullPointerException {
+    if (elem == null) {
+        throw new NullPointerException("Element cannot be null");
     }
+
+    Node<T> newNode = new Node<>(elem);
+    newNode.next = head;
+    head = newNode;
+}
 
     /**
      * {@inheritDoc}.

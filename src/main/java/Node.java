@@ -8,6 +8,8 @@ class Node<T>
     //   but you can if you like.
     public T element;
     public Node<T> next;
+    T data;
+
 
     public Node(T elem) {
         element = elem;
