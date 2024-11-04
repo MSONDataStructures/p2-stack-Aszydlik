@@ -8,31 +8,37 @@
  */
 public class LinkedStack<T> implements StackInterface<T> {
 
-    Node<T> first;
+    Node<T> head;
     int size;
+    Node<T> last;
+
+
+
 
     /**
      * {@inheritDoc}.
      */
     @Override
     public T pop() {
-        // TODO: Implement the pop method, which will be
-        //   similar to a removeFirst method for a LinkedList
-        //   (a special case of our remove method).
-        //   If the list is empty you should return a null value.
-        return null;
+        if (head == null) {
+            return null;
+        }
+
+        T value = head.data;
+        head = head.next;
+        return value;
     }
+
 
     /**
      * {@inheritDoc}.
      */
     @Override
     public T top() {
-        // TODO: Implement the top method, which will be
-        //   similar to a getFirst method for a LinkedList
-        //   (a special case of our get method).
-        //   If the list is empty you should return a null.
-        return null;
+        if (head == null) {
+            return null;
+        }
+        return head.data;
     }
 
     /**
