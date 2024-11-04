@@ -44,12 +44,16 @@ public class LinkedStack<T> implements StackInterface<T> {
     /**
      * {@inheritDoc}.
      */
-    @Override
-    public void push(T elem) throws NullPointerException {
-        // TODO: Implement the push method, which will be
-        //   similar to the addFirst method for a LinkedList.
-        //   If elem is null you should throw an exception.
+     @Override
+     public void push(T elem) throws NullPointerException {
+    if (elem == null) {
+        throw new NullPointerException("Element cannot be null");
     }
+
+    Node<T> newNode = new Node<>(elem);
+    newNode.next = head;
+    head = newNode;
+}
 
     /**
      * {@inheritDoc}.
