@@ -33,6 +33,7 @@ public class LinkedStack<T> implements StackInterface<T> {
     /**
      * {@inheritDoc}.
      */
+
     @Override
     public T top() {
         if (head == null) {
